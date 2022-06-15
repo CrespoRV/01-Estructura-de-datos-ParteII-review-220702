@@ -28,5 +28,4 @@ Lo aprendido en este módulo te servirá porque:
 
 ### Pledu
 
-Hacé [_click_ acá](https://pledu.plataforma5.la/bootcamp/01---estructura-de-datos/objetivos-f7abec94) para acceder al módulo correspondiente en Pledu.
-
+Hacé [_click_ acá](https://pledu.plataforma5.la/bootcamp/01---estructura-de-datos/objetivos-d47c8d9d) para acceder al módulo correspondiente en Pledu.
