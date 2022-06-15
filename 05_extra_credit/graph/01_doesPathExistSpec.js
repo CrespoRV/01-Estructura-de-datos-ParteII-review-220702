@@ -6,14 +6,14 @@
 /* global pathExists */
 /* eslint-disable id-length */
 
-describe('`pathExists`', function(){
+describe("Extra credit: `pathExists`", function () {
   var binaryTree, generalTree, graph, graphWithCycles;
 
   // Your function, `pathExists`, must determine if a path exists between two nodes
   // in a tree or graph
 
-  describe('given a binary tree', function(){
-    beforeEach(function(){
+  describe("given a binary tree", function () {
+    beforeEach(function () {
       /*        Binary Tree
 
                       +-+
@@ -66,13 +66,13 @@ describe('`pathExists`', function(){
       */
 
       binaryTree = {
-        a: ['b', 'c'],
-        b: ['d', 'e'],
-        c: ['f', 'g'],
-        d: ['h'],
+        a: ["b", "c"],
+        b: ["d", "e"],
+        c: ["f", "g"],
+        d: ["h"],
         e: [],
-        f: ['i', 'j'],
-        g: ['k'],
+        f: ["i", "j"],
+        g: ["k"],
         h: [],
         i: [],
         j: [],
@@ -80,19 +80,19 @@ describe('`pathExists`', function(){
       };
     });
 
-    it('returns true for paths that exist', function(){
-      expect(pathExists(binaryTree, 'a', 'h')).toBe(true);
-      expect(pathExists(binaryTree, 'c', 'j')).toBe(true);
+    it("returns true for paths that exist", function () {
+      expect(pathExists(binaryTree, "a", "h")).toBe(true);
+      expect(pathExists(binaryTree, "c", "j")).toBe(true);
     });
 
-    it('returns false for paths that do not exist', function(){
-      expect(pathExists(binaryTree, 'b', 'j')).toBe(false);
-      expect(pathExists(binaryTree, 'c', 'h')).toBe(false);
+    it("returns false for paths that do not exist", function () {
+      expect(pathExists(binaryTree, "b", "j")).toBe(false);
+      expect(pathExists(binaryTree, "c", "h")).toBe(false);
     });
   });
 
-  describe('given a tree with more than two children', function(){
-    beforeEach(function(){
+  describe("given a tree with more than two children", function () {
+    beforeEach(function () {
       /* General Tree
 
                +-+
@@ -125,14 +125,14 @@ describe('`pathExists`', function(){
 
       */
       generalTree = {
-        a: ['b', 'c', 'd'],
-        b: ['e', 'g'],
-        c: ['h'],
-        d: ['i', 'j', 'k', 'l'],
+        a: ["b", "c", "d"],
+        b: ["e", "g"],
+        c: ["h"],
+        d: ["i", "j", "k", "l"],
         e: [],
-        g: ['m'],
+        g: ["m"],
         h: [],
-        i: ['n', 'o'],
+        i: ["n", "o"],
         j: [],
         k: [],
         l: [],
@@ -142,19 +142,19 @@ describe('`pathExists`', function(){
       };
     });
 
-    it('returns true for paths that exist', function(){
-      expect(pathExists(generalTree, 'a', 'n')).toBe(true);
-      expect(pathExists(generalTree, 'b', 'm')).toBe(true);
+    it("returns true for paths that exist", function () {
+      expect(pathExists(generalTree, "a", "n")).toBe(true);
+      expect(pathExists(generalTree, "b", "m")).toBe(true);
     });
 
-    it('returns false for paths that do not exist', function(){
-      expect(pathExists(generalTree, 'b', 'n')).toBe(false);
-      expect(pathExists(generalTree, 'c', 'm')).toBe(false);
+    it("returns false for paths that do not exist", function () {
+      expect(pathExists(generalTree, "b", "n")).toBe(false);
+      expect(pathExists(generalTree, "c", "m")).toBe(false);
     });
   });
 
-  describe('given an acyclic graph', function(){
-    beforeEach(function(){
+  describe("given an acyclic graph", function () {
+    beforeEach(function () {
       /* Graph (no cycles)
 
                 +-+
@@ -189,27 +189,26 @@ describe('`pathExists`', function(){
 
       */
       graph = {
-        a: ['b', 'c'],
-        b: ['d'],
-        c: ['d'],
+        a: ["b", "c"],
+        b: ["d"],
+        c: ["d"],
         d: [],
       };
     });
 
-    it('returns true for paths that exist', function(){
-      expect(pathExists(graph, 'a', 'd')).toBe(true);
-      expect(pathExists(graph, 'b', 'd')).toBe(true);
+    it("returns true for paths that exist", function () {
+      expect(pathExists(graph, "a", "d")).toBe(true);
+      expect(pathExists(graph, "b", "d")).toBe(true);
     });
 
-    it('returns false for paths that do not exist', function(){
-      expect(pathExists(graph, 'a', '!@#$')).toBe(false);
-      expect(pathExists(graph, 'd', 'a')).toBe(false);
+    it("returns false for paths that do not exist", function () {
+      expect(pathExists(graph, "a", "!@#$")).toBe(false);
+      expect(pathExists(graph, "d", "a")).toBe(false);
     });
   });
 
-  xdescribe('given a graph with cycles', function(){
-    beforeEach(function(){
-
+  xdescribe("given a graph with cycles", function () {
+    beforeEach(function () {
       /* Graph (with cycles!)
 
                     +-+
@@ -256,32 +255,29 @@ describe('`pathExists`', function(){
       */
 
       graphWithCycles = {
-        a: ['c'],
-        b: ['c'],
-        c: ['s', 'r', 't'],
-        d: ['a'],
-        s: ['a', 'c'],
-        r: ['d'],
+        a: ["c"],
+        b: ["c"],
+        c: ["s", "r", "t"],
+        d: ["a"],
+        s: ["a", "c"],
+        r: ["d"],
         t: [],
-        z: ['z'],
+        z: ["z"],
       };
-
     });
 
-    it('returns true for paths that exist', function(){
-      expect(pathExists(graphWithCycles, 'a', 'c')).toBe(true);
-      expect(pathExists(graphWithCycles, 'a', 'd')).toBe(true);
-      expect(pathExists(graphWithCycles, 'r', 'd')).toBe(true);
-      expect(pathExists(graphWithCycles, 'r', 'a')).toBe(true);
-      expect(pathExists(graphWithCycles, 'r', 's')).toBe(true);
+    it("returns true for paths that exist", function () {
+      expect(pathExists(graphWithCycles, "a", "c")).toBe(true);
+      expect(pathExists(graphWithCycles, "a", "d")).toBe(true);
+      expect(pathExists(graphWithCycles, "r", "d")).toBe(true);
+      expect(pathExists(graphWithCycles, "r", "a")).toBe(true);
+      expect(pathExists(graphWithCycles, "r", "s")).toBe(true);
     });
 
-    it('returns false for paths that do not exist', function(){
-      expect(pathExists(graphWithCycles, 'a', 'b')).toBe(false);
-      expect(pathExists(graphWithCycles, 'c', 'z')).toBe(false);
-      expect(pathExists(graphWithCycles, 'r', 'o')).toBe(false);
+    it("returns false for paths that do not exist", function () {
+      expect(pathExists(graphWithCycles, "a", "b")).toBe(false);
+      expect(pathExists(graphWithCycles, "c", "z")).toBe(false);
+      expect(pathExists(graphWithCycles, "r", "o")).toBe(false);
     });
-
   });
-
 });
