@@ -8,18 +8,16 @@ describe('`shortestPaths`', function(){
   beforeEach(function(){
 
     /*
-    Your function, `shortestPaths`, must return an array of shortest paths
-    between two nodes in an undirected graph (unlike the directed graph in the
-    `doesPathExist` problem, all edges in an undirected graph are bidirectional).
-
-    The premade `undirectedGraph` below will be used for most of the test specs,
-    and the generated graph (`largeGraph`) will be utilized for the final spec.
-
-    The generated graph is quite big, so think carefully about how you should
-    approach this problem!  An unoptimized search may end up taking an
-    unnecessarily long time to run.  Carefully consider what you've learned
-    in the data structures workshop, and what "type" of search would be most
-    suitable for this problem!
+    
+    La función `shortestPaths` debe devolver una matriz de rutas más cortas
+    entre dos nodos en un gráfico no dirigido (a diferencia del gráfico dirigido en el
+    problema `doesPathExist`, todos los bordes en un gráfico no dirigido son bidireccionales).
+    El "undirectedGraph" prefabricado a continuación se utilizará para la mayoría de las especificaciones de prueba,
+    y el gráfico generado (`largeGraph`) se utilizará para la especificación final.
+    El gráfico generado es bastante grande, así que pensá detenidamente cómo deberías
+    abordar este problema! Una búsqueda no optimizada puede terminar tomando una
+    cantidad innecesaria de tiempo para terminar. Considerá cuidadosamente lo que aprendiste en el taller de
+    estructura de datos, y qué "tipo" de búsqueda sería más adecuado para este problema!
 
     */
 
@@ -41,11 +39,11 @@ describe('`shortestPaths`', function(){
 
     largeGraph = graphGen(5, 35);
     /*
-    `graphGen` here creates a graph with 35 total vertices each connected to a
-    random number of neighbors (maximum of 5).
+    `graphGen` crea un gráfico con 35 vértices en total, cada uno conectado a un
+    número aleatorio de vecinos (máximo de 5).
 
-    The graph also contains one giant loop connecting the outermost vertices,
-    so once again, make sure your function detects cycles!
+    El gráfico también contiene un bucle gigante que conecta los vértices más externos,
+    así que una vez más, ¡asegurate de que tu función detecte ciclos!
     */
   });
 
@@ -94,11 +92,11 @@ describe('`shortestPaths`', function(){
 
   describe('given a graph with over 30 vertices', function(){
     it('should be optimized and complete its computations in a set amount of time (depends on how fast the computer is, but usually less than 50 milliseconds)', function(){
-      // This will test whether your function has been written optimally.  It should not perform unnecessary computations.
-      // Remove the 'x' before describe (on line 95) to run this test spec.
+      // Esto prueba que tu función se escribió de manera óptima. No debería realizar cálculos innecesarios.
+      // Eliminá la 'x' antes del "describe" (en la línea 95) para ejecutar esta prueba.
 
       var startBaseline = Date.now();
-      performanceLoop(); // This is to establish a baseline time to compare with the `shortestPath` time (`performanceLoop` usually takes about 6 milliseconds to run).
+      performanceLoop(); // Esto es para establecer un tiempo de referencia para compararlo con el tiempo de `shortestPath` (`performanceLoop` normalmente tarda unos 6 milisegundos en ejecutarse).
       var elapsedTimeBaseline = Date.now() - startBaseline;
 
       var start = Date.now();
@@ -106,7 +104,7 @@ describe('`shortestPaths`', function(){
       if (!shortestPathsArr) throw Error('shortestPaths function does not return anything');
       var elapsedTime = Date.now() - start;
 
-      // Implemented correctly, `shortestPaths` should take less time than baseline time. The spec here will test if it at the very least finishes before the baseline time multiplied by 2. A suboptimal `shortestPaths` function will probably take a couple seconds to complete (and fail the spec).
+      // Implementado correctamente, `shortestPaths` debería tomar menos tiempo que el tiempo de referencia. Esta especificación va a comprobar si finaliza en menos del doble de tiempo de referencia. Una función `shortestPaths` que no esté correctamente optimizada probablemente tarde un par de segundos en completarse (y fallaría la especificación).
 
       expect(elapsedTime).toBeLessThan(elapsedTimeBaseline * 2);
     });
