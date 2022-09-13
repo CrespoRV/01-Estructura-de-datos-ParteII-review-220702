@@ -20,7 +20,7 @@ function LinkedList() {
   };
   
   LinkedList.prototype.addToHead = function(value) {
-    const newHead = new Node(value, this.head, null);
+    const newHead = new Node(value, this.head);
     if(this.head) {
       this.head.previous = newHead;
     } else {
@@ -49,7 +49,7 @@ function LinkedList() {
     if (this.tail) {
       this.tail.next = null;
     } else {
-      this.tail = null;
+      this.head = null;
     }
     return oldValue;
   };
@@ -59,15 +59,15 @@ function LinkedList() {
   }
   
   LinkedList.prototype.search = function(predicate) {
-    const correct = isFn(predicate) ? predicate : function(value) {
+   const correct = isFn(predicate) ? predicate : function(value) {
     return value === predicate;
    }
-    let currentNode = this.head;
+   let currentNode = this.head;
     while (currentNode) {
       if (correct(currentNode.value)) {
         return currentNode.value;
       }
       currentNode = currentNode.next;
     }
-    return null;
+    return false;
   };

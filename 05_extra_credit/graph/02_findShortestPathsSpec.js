@@ -92,7 +92,7 @@ describe('`shortestPaths`', function(){
     });
   });
 
-  xdescribe('given a graph with over 30 vertices', function(){
+  describe('given a graph with over 30 vertices', function(){
     it('should be optimized and complete its computations in a set amount of time (depends on how fast the computer is, but usually less than 50 milliseconds)', function(){
       // This will test whether your function has been written optimally.  It should not perform unnecessary computations.
       // Remove the 'x' before describe (on line 95) to run this test spec.

@@ -207,7 +207,7 @@ describe("Extra credit: `pathExists`", function () {
     });
   });
 
-  xdescribe("given a graph with cycles", function () {
+  describe("given a graph with cycles", function () {
     beforeEach(function () {
       /* Graph (with cycles!)
 
@@ -271,7 +271,7 @@ describe("Extra credit: `pathExists`", function () {
       expect(pathExists(graphWithCycles, "a", "d")).toBe(true);
       expect(pathExists(graphWithCycles, "r", "d")).toBe(true);
       expect(pathExists(graphWithCycles, "r", "a")).toBe(true);
-      expect(pathExists(graphWithCycles, "r", "s")).toBe(true);
+      expect(pathExists(graphWithCycles, "r", "s")).toBe(true); 
     });
 
     it("returns false for paths that do not exist", function () {

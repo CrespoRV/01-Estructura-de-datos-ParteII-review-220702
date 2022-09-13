@@ -22,8 +22,8 @@ describe('A circular buffer queue', function() {
     it('should add the correct values to the queue', function() {
       queue.enqueue(10);
       queue.enqueue(21);
-      expect(queue.data[0]).toBe(10);
-      expect(queue.data[1]).toBe(21);
+      expect(queue.data[0]).toBe(21);
+      expect(queue.data[1]).toBe(10);
     });
 
     it('should only accept numbers from 0 to 255 inclusive', function() {
