@@ -1,3 +1,4 @@
+/* global graphGen shortestPaths performanceLoop */
 /* eslint-disable id-length */
 
 describe('`shortestPaths`', function(){
