@@ -1,7 +1,7 @@
-// the `global pathExists` comment directive (on line 6) tells certain linters
-// that these variables come from other files
-// the `eslint-disable id-length` comment directive (on line 7) tells certain
-// linters not to enforce maximum/minimum length variable names
+// la linea comentada `global pathExists` (en la línea 6) le dice a ciertos linters
+// que estas variables vienen de otros archivos
+// la linea comentada `eslint-disable id-length` (en la línea 7) obliga a
+// los linters a no imponer nombres de variables de longitud máxima/mínima
 
 /* global pathExists */
 /* eslint-disable id-length */
@@ -9,10 +9,10 @@
 describe("Extra credit: `pathExists`", function () {
   var binaryTree, generalTree, graph, graphWithCycles;
 
-  // Your function, `pathExists`, must determine if a path exists between two nodes
-  // in a tree or graph
+  // La función, `pathExists`, debe determinar si existe una ruta entre dos nodos
+  // en un árbol o gráfico
 
-  describe("given a binary tree", function () {
+  describe("dado un árbol binario", function () {
     beforeEach(function () {
       /*        Binary Tree
 
@@ -42,26 +42,26 @@ describe("Extra credit: `pathExists`", function () {
           |H|         |I|   |J|    |K|
           +-+         +-+   +-+    +-+
 
-      This binary tree is similar to the binary search tree (BST) that you
-      worked on in the workshop, but there are two key differences:
+      Este árbol binario es similar al árbol de búsqueda binaria (BST) que se
+      estuvo trabajando en el workshop, pero hay dos diferencias claves:
 
-      1.  Here (line 68), it is represented as an "adjacency list."  All of the
-      information about the nodes and and their child nodes is stored in a
-      single object.  The keys of this adjacency list are the nodes and
-      the values represent the corresponding left and right child nodes
-      (the 1st element of the array being the left child, and the 2nd element
-      being the right child).  For example, node 'b's left child is 'd' and
-      right child is 'e.'
+      1. Se representa como una "lista de adyacencia". Toda la
+      la información sobre los nodos y sus nodos secundarios se almacena en un
+      solo objeto. Las claves de esta lista de adyacencia son los nodos y
+      los valores representan los nodos secundarios izquierdo y derecho correspondientes
+      (el primer elemento de la matriz es el hijo izquierdo y el segundo elemento
+      es el hijo derecho). Por ejemplo, el hijo izquierdo del nodo 'b' es 'd' y
+      hijo derecho es 'e.'
 
-      2. Unlike the BST in the workshop, this binary tree is also unordered
-      (there is nothing that actually determines what goes left or right to a
-      node).  BST's are a subset of binary trees, and while the former has
-      implied ordering, the latter does not (necessarily).
-      NOTE: While this unordered binary tree happens to be represented as an
-      adjacency list, this does not mean they all have to be!
+      2. A diferencia del BST del workshop, este árbol binario también está desordenado.
+      (no hay nada que realmente determine lo que va a la izquierda o a la derecha de un
+      nodo). Los BST son un subconjunto de árboles binarios, y mientras que el primero tiene
+      orden implícito, este último no (necesariamente).
+      NOTA: Si bien este árbol binario desordenado se representa como un
+      lista de adyacencia, ¡esto no significa que todos tengan que serlo!
 
-      Because of these differences, you're going to have to take a different
-      approach here than what you did for the BST prototypal "contains" method.
+      Debido a estas diferencias, en este ejercicio se tiene que tomar un enfoque diferente
+      respecto al metodo "contains" del arbol BST.
 
       */
 
@@ -80,18 +80,18 @@ describe("Extra credit: `pathExists`", function () {
       };
     });
 
-    it("returns true for paths that exist", function () {
+    it("retorna 'true' para rutas existentes", function () {
       expect(pathExists(binaryTree, "a", "h")).toBe(true);
       expect(pathExists(binaryTree, "c", "j")).toBe(true);
     });
 
-    it("returns false for paths that do not exist", function () {
+    it("retorna 'false' para rutas inexistentes", function () {
       expect(pathExists(binaryTree, "b", "j")).toBe(false);
       expect(pathExists(binaryTree, "c", "h")).toBe(false);
     });
   });
 
-  describe("given a tree with more than two children", function () {
+  describe("dado un árbol con más de dos hijos", function () {
     beforeEach(function () {
       /* General Tree
 
@@ -120,8 +120,8 @@ describe("Extra credit: `pathExists`", function () {
            |M|    |N|    |O|
            +-+    +-+    +-+
 
-      This tree is like the binary tree in the spec above, except there is no
-      limit to how many children each node can have!
+      Este árbol es como el árbol binario en la especificación anterior, excepto que no hay
+      límite a cuántos hijos puede tener cada nodo!
 
       */
       generalTree = {
@@ -142,20 +142,20 @@ describe("Extra credit: `pathExists`", function () {
       };
     });
 
-    it("returns true for paths that exist", function () {
+    it("retorna 'true' para rutas existentes", function () {
       expect(pathExists(generalTree, "a", "n")).toBe(true);
       expect(pathExists(generalTree, "b", "m")).toBe(true);
     });
 
-    it("returns false for paths that do not exist", function () {
+    it("retorna 'false' para rutas inexistentes", function () {
       expect(pathExists(generalTree, "b", "n")).toBe(false);
       expect(pathExists(generalTree, "c", "m")).toBe(false);
     });
   });
 
-  describe("given an acyclic graph", function () {
+  describe("dado un gráfo acíclico", function () {
     beforeEach(function () {
-      /* Graph (no cycles)
+      /* Graph (sin ciclos)
 
                 +-+
                 |A|
@@ -176,16 +176,13 @@ describe("Extra credit: `pathExists`", function () {
                 |D|
                 +-+
 
-      Notice that for this spec, multiple parents can now reach the same child!
-      ('b' and 'c' can both reach 'd'). This means the data structure can no
-      longer be called a *tree*, but rather a *graph*!  All trees are
-      technically a subset of graphs, but trees cannot have multiple roots
-      or multiple paths to any node.  Therefore, we cannot call this
-      data structure a tree.
+      Es necesario prestar mucha atención en este caso ya que varios padres pueden comunicarse con el mismo hijo
+      ('b' y 'c' pueden llegar a 'd'). Esto significa que la estructura de datos ya no se llamará un *árbol*, 
+      sino un *gráfico*! Todos los árboles son técnicamente un subconjunto de gráficos, pero los árboles no pueden tener múltiples raíces
+      o múltiples caminos a cualquier nodo. Por lo tanto, no podemos llamar a esto un árbol.
 
-      Thankfully, you most likely will not need to change much of your code to
-      have `pathExists` work here: if it worked for the `generalTree`, it would
-      likely work for this graph as well.
+      Es problable que no se necesite cambiar gran parte del código para
+      hacer que `pathExists` funcione tambien para este caso: si funciona para `generalTree`, es probable que funcione para este grafico.
 
       */
       graph = {
@@ -196,20 +193,20 @@ describe("Extra credit: `pathExists`", function () {
       };
     });
 
-    it("returns true for paths that exist", function () {
+    it("retorna 'true' para rutas existentes", function () {
       expect(pathExists(graph, "a", "d")).toBe(true);
       expect(pathExists(graph, "b", "d")).toBe(true);
     });
 
-    it("returns false for paths that do not exist", function () {
+    it("retorna 'false' para rutas que no existen", function () {
       expect(pathExists(graph, "a", "!@#$")).toBe(false);
       expect(pathExists(graph, "d", "a")).toBe(false);
     });
   });
 
-  describe("given a graph with cycles", function () {
+  describe("dado un grafo cíclico", function () {
     beforeEach(function () {
-      /* Graph (with cycles!)
+      /* Graph (con ciclos!)
 
                     +-+
                     |D|--+
@@ -232,26 +229,19 @@ describe("Extra credit: `pathExists`", function () {
                       |R| |T|
                       +-+ +-+
 
-      Here comes the fun part!!!
+      Acá es donde viene la parte divertida!
 
-      This graph now contains cycles.  There is no concept of parent-child
-      relationships now, as any node can loop back and connect to an earlier
-      (previously traversed) node.  There are no "parent" nodes or "child"
-      nodes, only nodes and neighboring nodes.
+      Este gráfico ahora contiene ciclos. Ahora ya no existe el concepto de padre-hijo porque cualquier nodo puede retroceder y conectarse a un nodo anterior.
+      No hay nodos "padres" o "hijos", solo nodos y nodos vecinos.
 
-      The links between nodes and neighboring nodes are called "edges", and can
-      be bi-directional (between nodes S and C for example) or one way
-      (everywhere else).
+      Los enlaces entre los nodos y los nodos vecinos se denominan "bordes" y pueden
+      ser bidireccional (entre los nodos S y C, por ejemplo) o unidireccional 
+      (en todos lados).
 
-      (FYI the term "neighbor" may not mean what you think. In computer science
-      it only refers to a possible next destination, not whether 2 nodes are
-      "next" to each other.  In the graph below, for example, A has C as
-      a neighbor, but C does not have A as a neighbor).
+      (El término "vecino" no se refiere especificamente a un nodo al lado de otro sino a un posible "proximo destino".
+      En el siguiente gráfico, por ejemplo, A tiene a C como vecino, pero C no tiene a A como vecino).
 
-      Final note: A cyclic graph will probably result in an infinite loop if
-      you haven't changed your code yet to deal with cycles.
-      REMOVE THE X BEFORE DESCRIBE (on line 210) TO RUN THIS TEST, BUT ONLY DO
-      SO WHEN YOU ARE READY TO TACKLE THIS PROBLEM.
+      Para terminar: un gráfico cíclico puede llegar a terminar en un bucle infinito si todavia no se cambió el código para lidiar con los ciclos.
       */
 
       graphWithCycles = {
@@ -266,7 +256,7 @@ describe("Extra credit: `pathExists`", function () {
       };
     });
 
-    it("returns true for paths that exist", function () {
+    it("retorna 'true' para rutas existentes", function () {
       expect(pathExists(graphWithCycles, "a", "c")).toBe(true);
       expect(pathExists(graphWithCycles, "a", "d")).toBe(true);
       expect(pathExists(graphWithCycles, "r", "d")).toBe(true);
@@ -274,7 +264,7 @@ describe("Extra credit: `pathExists`", function () {
       expect(pathExists(graphWithCycles, "r", "s")).toBe(true); 
     });
 
-    it("returns false for paths that do not exist", function () {
+    it("retorna 'false' para rutas que no existen", function () {
       expect(pathExists(graphWithCycles, "a", "b")).toBe(false);
       expect(pathExists(graphWithCycles, "c", "z")).toBe(false);
       expect(pathExists(graphWithCycles, "r", "o")).toBe(false);
