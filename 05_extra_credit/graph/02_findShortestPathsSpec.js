@@ -26,15 +26,15 @@ describe('`shortestPaths`', function(){
       b: ['a', 'd'],
       c: ['a', 'd', 'y'],
       d: ['b', 'c', 'r', 'x'],
-		  q: ['a', 'r', 's', 't', 'u'],
-		  r: ['d', 'q', 'z'],
+      q: ['a', 'r', 's', 't', 'u'],
+      r: ['d', 'q', 'z'],
       s: ['v', 'q'],
       t: ['v', 'q'],
       u: ['v', 'q'],
       v: ['s', 't', 'u'],
-		  x: ['d'],
-		  y: ['c'],
-		  z: ['r']
+      x: ['d'],
+      y: ['c'],
+      z: ['r']
     };
 
     largeGraph = graphGen(5, 35);
@@ -47,17 +47,17 @@ describe('`shortestPaths`', function(){
     */
   });
 
-  it('returns an array', function(){
+  it('retorna un arreglo', function(){
     var returnedValue = shortestPaths(undirectedGraph, 'a', '!@#$%');
     expect(returnedValue).toEqual(jasmine.any(Array));
   });
 
-  it('returns an array with length 0 if no path exists', function(){
+  it('retorna un arreglo de longitud 0 si la ruta no existe', function(){
     var returnedValue = shortestPaths(undirectedGraph, 'a', '!@#$%');
     expect(returnedValue.length).toBe(0);
   });
 
-  it('returns an array of arrays if path exists', function(){
+  it('retorna un arreglo de arreglos si la ruta existe', function(){
     var returnedValue = shortestPaths(undirectedGraph, 'a', 'a');
     expect(returnedValue).toEqual(jasmine.any(Array));
     for (let element of returnedValue){
@@ -65,33 +65,33 @@ describe('`shortestPaths`', function(){
     }
   });
 
-  describe('for starting and ending vertices that only have a single shortest path between them', function(){
-    it('returns an array of length 1', function(){
+  describe('para los nodos iniciales y finales que tienen solo una ruta más corta', function(){
+    it('retorna un arreglo con longitud igual a 1', function(){
       expect(shortestPaths(undirectedGraph, 'a', 'y').length).toBe(1);
       expect(shortestPaths(undirectedGraph, 'd', 'z').length).toBe(1);
     });
-    it('returns the correct shortest path', function(){
+    it('retorna la ruta mas corta', function(){
       expect(shortestPaths(undirectedGraph, 'a', 'y')[0].toString()).toEqual('a,c,y');
       expect(shortestPaths(undirectedGraph, 'd', 'z')[0].toString()).toEqual('d,r,z');
     });
   });
 
-  describe('for starting and ending vertices that have multiple shortest paths between them', function(){
-    it('returns an array with length matching the number of shortest paths', function(){
+  describe('para los nodos iniciales y finales que tienen mas de una ruta corta', function(){
+    it('devuelve un arreglo cuya longitud coincide con el número de rutas más cortas', function(){
       expect(shortestPaths(undirectedGraph, 'a', 'd').length).toBe(2);
       expect(shortestPaths(undirectedGraph, 'x', 'a').length).toBe(2);
       expect(shortestPaths(undirectedGraph, 'q', 'v').length).toBe(3);
     });
 
-    it('returns the correct shortest paths', function(){
+    it('retorna las rutas cortas correctas', function(){
       expect(shortestPaths(undirectedGraph, 'a', 'd')).toEqual(arrayContains([['a', 'b', 'd'], ['a', 'c', 'd']]));
       expect(shortestPaths(undirectedGraph, 'x', 'a')).toEqual(arrayContains([['x', 'd', 'b', 'a'], ['x', 'd', 'c', 'a']]));
       expect(shortestPaths(undirectedGraph, 'v', 'q')).toEqual(arrayContains([['v', 'u', 'q'], ['v', 't', 'q'], ['v', 's', 'q']]));
     });
   });
 
-  describe('given a graph with over 30 vertices', function(){
-    it('should be optimized and complete its computations in a set amount of time (depends on how fast the computer is, but usually less than 50 milliseconds)', function(){
+  describe('dado un gráfico con más de 30 nodos', function(){
+    it('tiene que estar optimizado y completar todo el calculo en un tiempo determinado (depende de qué tan rápida sea la computadora, pero generalmente menos de 50 milisegundos)', function(){
       // Esto prueba que tu función se escribió de manera óptima. No debería realizar cálculos innecesarios.
       // Eliminá la 'x' antes del "describe" (en la línea 95) para ejecutar esta prueba.
 
@@ -101,7 +101,7 @@ describe('`shortestPaths`', function(){
 
       var start = Date.now();
       var shortestPathsArr = shortestPaths(largeGraph, 'a', 'b');
-      if (!shortestPathsArr) throw Error('shortestPaths function does not return anything');
+      if (!shortestPathsArr) throw Error('la función "shortestPaths" no retorna ningun valor');
       var elapsedTime = Date.now() - start;
 
       // Implementado correctamente, `shortestPaths` debería tomar menos tiempo que el tiempo de referencia. Esta especificación va a comprobar si finaliza en menos del doble de tiempo de referencia. Una función `shortestPaths` que no esté correctamente optimizada probablemente tarde un par de segundos en completarse (y fallaría la especificación).
