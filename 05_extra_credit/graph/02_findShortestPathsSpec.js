@@ -9,14 +9,14 @@ describe('`shortestPaths`', function(){
 
     /*
     
-    La función `shortestPaths` debe devolver una matriz de rutas más cortas
+    La función `shortestPaths` debe devolver un arreglo de rutas más cortas
     entre dos nodos en un gráfico no dirigido (a diferencia del gráfico dirigido en el
     problema `doesPathExist`, todos los bordes en un gráfico no dirigido son bidireccionales).
     El "undirectedGraph" prefabricado a continuación se utilizará para la mayoría de las especificaciones de prueba,
     y el gráfico generado (`largeGraph`) se utilizará para la especificación final.
     El gráfico generado es bastante grande, así que pensá detenidamente cómo deberías
     abordar este problema! Una búsqueda no optimizada puede terminar tomando una
-    cantidad innecesaria de tiempo para terminar. Considerá cuidadosamente lo que aprendiste en el taller de
+    cantidad innecesaria de tiempo para terminar. Considerá cuidadosamente lo que aprendiste en el workshop de
     estructura de datos, y qué "tipo" de búsqueda sería más adecuado para este problema!
 
     */
@@ -39,11 +39,11 @@ describe('`shortestPaths`', function(){
 
     largeGraph = graphGen(5, 35);
     /*
-    `graphGen` crea un gráfico con 35 vértices en total, cada uno conectado a un
+    `graphGen` crea un gráfico con 35 nodos en total, cada uno conectado a un
     número aleatorio de vecinos (máximo de 5).
 
-    El gráfico también contiene un bucle gigante que conecta los vértices más externos,
-    así que una vez más, ¡asegurate de que tu función detecte ciclos!
+    El gráfico también contiene un bucle gigante que conecta los nodos más externos,
+    así que una vez más, ¡tené cuidado y asegurate de que tu función detecte ciclos!
     */
   });
 
