@@ -47,7 +47,7 @@ describe('Una "circular buffer queue"', function() {
       expect(queue.dequeue()).toBe(6);
       expect(queue.dequeue()).toBe(10);
     });
-    it('debería manejar el uso intercalado de los metodos `enqueue` y `dequeue` ', function() {
+    it('debería manejar el uso intercalado de los métodos `enqueue` y `dequeue` ', function() {
       queue.enqueue(3);
       queue.enqueue(10);
       expect(queue.dequeue()).toBe(3);
@@ -56,7 +56,7 @@ describe('Una "circular buffer queue"', function() {
       expect(queue.dequeue()).toBe(10);
       expect(queue.dequeue()).toBe(41);
     });
-    it('debe manejar el subdesbordamiento (lanzar un error al intentar eliminar un valor de una queue vacia)', function() {
+    it('debe manejar el subdesbordamiento (lanzar un error al intentar eliminar un valor de una queue vacía)', function() {
       expect(function() {
         queue.dequeue();
       }).toThrow();
@@ -75,7 +75,7 @@ describe('Una "circular buffer queue"', function() {
     });
   });
 
-  describe('Manejando correctamente el uso intercalado de los metodos y el desbordamiento', function() {
+  describe('Manejando correctamente el uso intercalado de los métodos y el desbordamiento', function() {
     it('debería manejar valores correctos', function() {
       queue.enqueue(12);
       queue.enqueue(81);
