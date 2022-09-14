@@ -12,13 +12,13 @@ function graphGen (maxNeighbors, totalVertices) {
 }
 
 function connectAllVertices (graph, verticesToBranch, maxNeighbors) {
-  // connectAllVertices returns a graph (variable 'connectedGraph' on line 9) that is "tree-like", with no loops!
+  // connectAllVertices devuelve un gráfico (variable 'connectedGraph' en la línea 9) que es "similar a un árbol", ¡sin bucles!
   var newGraph = graphDeepClone(graph);
   var unexploredVertices = verticesToBranch.slice(1, verticesToBranch.length);
   var start = true;
   while (unexploredVertices.length) {
     var currentVertex = verticesToBranch.splice(0, 1)[0];
-    var numNewNeighbors = start ? maxNeighbors : getRandomInt(2, maxNeighbors);//starts out max, but later in while loop it's random (between 2 and max)
+    var numNewNeighbors = start ? maxNeighbors : getRandomInt(2, maxNeighbors);//comienza como máximo, pero más tarde en el ciclo while es aleatorio (entre 2 y máximo)
     start = false;
     var neighbors = unexploredVertices.splice(0, numNewNeighbors);
     connectMultipleVertices(newGraph, currentVertex, neighbors);
@@ -38,14 +38,15 @@ function connectMultipleVertices (graph, vertex, neighbors) {
 }
 
 function connectLeaves (graph) {
-  // connectLeaves takes a graph returned from connectAllVertices, clones
-  // it, and returns a new graph (variable 'connectedGraphwithLoop' on line 10)
-  // with all the leaf vertices connected, making a single loop through all the
-  // outermost vertices.  Vertices that were previously the leaf vertices go
-  // from having 1 neighbor, to having 3 neighbors
+  // connectLeaves toma un gráfico devuelto por connectAllVertices, clona
+  // y devuelve un nuevo gráfico (variable 'connectedGraphwithLoop' en la línea 10)
+  // con todos los vértices de las hojas conectados, haciendo un solo bucle a través de todos los
+  // vértices más externos. Los vértices que antes eran los vértices de las hojas pasan
+  // de tener 1 vecino, a tener 3 vecinos
   //
-  // The loop is necessary to test whether a shortest paths function has been
-  // optimized
+  // El bucle es necesario para comprobar si se activó una función optimizada 
+  // de rutas más cortas
+  
 
   var newGraph = graphDeepClone(graph);
   var graphKeys = Object.keys(newGraph);
