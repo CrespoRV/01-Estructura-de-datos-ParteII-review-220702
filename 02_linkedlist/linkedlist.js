@@ -49,7 +49,7 @@ function LinkedList() {
     if (this.tail) {
       this.tail.next = null;
     } else {
-      this.tail = null;
+      this.head = null;
     }
     return oldValue;
   };
