@@ -1,5 +1,5 @@
 describe("Hash Table", function () {
-  var hashTable;
+  let hashTable;
 
   beforeEach(function () {
     hashTable = new HashTable();

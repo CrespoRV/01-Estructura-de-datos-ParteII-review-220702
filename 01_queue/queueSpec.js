@@ -13,7 +13,7 @@
  */
 
 describe("Un queue", function () {
-  var queue;
+  let queue;
 
   beforeEach(function () {
     // Necesitarás un constructor Queue creado en el archivo `queue.js`.

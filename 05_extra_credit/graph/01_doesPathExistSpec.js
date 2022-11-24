@@ -7,7 +7,7 @@
 /* eslint-disable id-length */
 
 describe("Extra credit: `pathExists`", function () {
-  var binaryTree, generalTree, graph, graphWithCycles;
+  let binaryTree, generalTree, graph, graphWithCycles;
 
   // La función, `pathExists`, debe determinar si existe una ruta entre dos nodos
   // en un árbol o gráfico

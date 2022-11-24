@@ -1,5 +1,5 @@
 describe("Una Linked List", function () {
-  var linkedList;
+  let linkedList;
 
   beforeEach(function () {
     // Al igual que en 'queues' crearás un constructor llamado 'LinkedList'.
@@ -36,7 +36,7 @@ describe("Una Linked List", function () {
   });
 
   it("tiene nodos que, por default, contienen las Propiedades `next` y `previous` como null", function () {
-    var node = new Node("test");
+    const node = new Node("test");
     // Recordá cargar los valores por defecto.
     expect(node.value).toBe("test");
     expect(node.next).toBe(null);

@@ -1,5 +1,5 @@
 describe('Una "circular buffer queue"', function() {
-  var queue;
+  let queue;
 
   beforeEach(function() {
     queue = new QueueCirc(4);

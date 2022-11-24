@@ -3,8 +3,8 @@
 
 
 describe('`shortestPaths`', function(){
-  var arrayContains = jasmine.arrayContaining;
-  var undirectedGraph, largeGraph;
+  const arrayContains = jasmine.arrayContaining;
+  let undirectedGraph, largeGraph;
 
   beforeEach(function(){
 
@@ -49,17 +49,17 @@ describe('`shortestPaths`', function(){
   });
 
   it('retorna un arreglo', function(){
-    var returnedValue = shortestPaths(undirectedGraph, 'a', '!@#$%');
+    const returnedValue = shortestPaths(undirectedGraph, 'a', '!@#$%');
     expect(returnedValue).toEqual(jasmine.any(Array));
   });
 
   it('retorna un arreglo de longitud 0 si la ruta no existe', function(){
-    var returnedValue = shortestPaths(undirectedGraph, 'a', '!@#$%');
+    const returnedValue = shortestPaths(undirectedGraph, 'a', '!@#$%');
     expect(returnedValue.length).toBe(0);
   });
 
   it('retorna un arreglo de arreglos si la ruta existe', function(){
-    var returnedValue = shortestPaths(undirectedGraph, 'a', 'a');
+    const returnedValue = shortestPaths(undirectedGraph, 'a', 'a');
     expect(returnedValue).toEqual(jasmine.any(Array));
     for (let element of returnedValue){
       expect(element).toEqual(jasmine.any(Array));
@@ -96,14 +96,14 @@ describe('`shortestPaths`', function(){
       // Esto prueba que tu función se escribió de manera óptima. No debería realizar cálculos innecesarios.
       // Eliminá la 'x' antes del "describe" (en la línea 95) para ejecutar esta prueba.
 
-      var startBaseline = Date.now();
+      const startBaseline = Date.now();
       performanceLoop(); // Esto es para establecer un tiempo de referencia para compararlo con el tiempo de `shortestPath` (`performanceLoop` normalmente tarda unos 6 milisegundos en ejecutarse).
-      var elapsedTimeBaseline = Date.now() - startBaseline;
+      const elapsedTimeBaseline = Date.now() - startBaseline;
 
-      var start = Date.now();
-      var shortestPathsArr = shortestPaths(largeGraph, 'a', 'b');
+      const start = Date.now();
+      const shortestPathsArr = shortestPaths(largeGraph, 'a', 'b');
       if (!shortestPathsArr) throw Error('la función "shortestPaths" no retorna ningun valor');
-      var elapsedTime = Date.now() - start;
+      const elapsedTime = Date.now() - start;
 
       // Implementado correctamente, `shortestPaths` debería tomar menos tiempo que el tiempo de referencia. Esta especificación va a comprobar si finaliza en menos del doble de tiempo de referencia. Una función `shortestPaths` que no esté correctamente optimizada probablemente tarde un par de segundos en completarse (y fallaría la especificación).
 

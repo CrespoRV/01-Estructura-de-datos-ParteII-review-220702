@@ -5,7 +5,7 @@ function BinarySearchTree(value) {
 }
 
 BinarySearchTree.prototype.insert = function (value) {
-  var direction = value > this.value ? "right" : "left";
+  const direction = value > this.value ? "right" : "left";
   if (this[direction]) this[direction].insert(value);
   else this[direction] = new BinarySearchTree(value);
 };
