@@ -7,15 +7,15 @@ function HashTable() {
     if (typeof key !== 'string') throw new TypeError('Keys must be strings');
     const hashedKey = this.hash(key);
     this.buckets[hashedKey] = this.buckets[hashedKey] || new LinkedList();
-    this.buckets[hashedKey].addToHead({ key, value });
+    this.buckets[hashedKey].addToHead({ [key]:value });
   };
   
   HashTable.prototype.get = function(key) {
     const hashedKey = this.hash(key);
     const found = this.buckets[hashedKey].search(function(obj) {
-      return key === obj.key;
+      return Object.keys(obj).includes(key);
     });
-    return found && found.value;
+    return found && found[key];
   };
   
   HashTable.prototype.hasKey = function(key) {

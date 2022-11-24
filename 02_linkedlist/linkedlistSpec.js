@@ -7,7 +7,7 @@ describe("Una Linked List", function () {
     linkedList = new LinkedList();
   });
 
-  xit("tiene métodos `addToTail`, `addToHead`, `removeTail`,`removeHead` y `search`", function () {
+  it("tiene métodos `addToTail`, `addToHead`, `removeTail`,`removeHead` y `search`", function () {
     expect(typeof linkedList.addToTail).toBe("function");
     expect(typeof linkedList.addToHead).toBe("function");
     expect(typeof linkedList.removeTail).toBe("function");
@@ -15,7 +15,7 @@ describe("Una Linked List", function () {
     expect(typeof linkedList.search).toBe("function");
   });
 
-  xit("empieza con `head` y `tail` como falsos", function () {
+  it("empieza con `head` y `tail` como falsos", function () {
     // Creá dos Propiedades head y tail, ambas tienen que estar vacías por defecto.
     // Representarán los *punteros* al inicio y final de la lista.
     // "Falsy" hace referencia a un valor que da *falso* evaluado como 'Boolean'. ¿Te acordás cuáles son?
@@ -25,7 +25,7 @@ describe("Una Linked List", function () {
     expect(linkedList.removeHead()).toBeFalsy();
   });
 
-  xit("tiene una clase Node para representar un nodo", function () {
+  it("tiene una clase Node para representar un nodo", function () {
     expect(typeof Node).toBe("function");
     // Ya existe un constructor llamado "Node" en el explorador.
     // El siguiente spec verifica que hayas creado uno propio.
@@ -35,7 +35,7 @@ describe("Una Linked List", function () {
     }
   });
 
-  xit("tiene nodos que, por default, contienen las Propiedades `next` y `previous` como null", function () {
+  it("tiene nodos que, por default, contienen las Propiedades `next` y `previous` como null", function () {
     var node = new Node("test");
     // Recordá cargar los valores por defecto.
     expect(node.value).toBe("test");
@@ -43,7 +43,7 @@ describe("Una Linked List", function () {
     expect(node.previous).toBe(null);
   });
 
-  xit("debe usar la clase Node para agregar nodos", function () {
+  it("debe usar la clase Node para agregar nodos", function () {
     // Vamos a almacenar cada elemento de la lista en forma de nodos.
     // Los punteros deberán actualizarse a medida que la lista cambie.
     linkedList.addToTail("first");
@@ -51,7 +51,7 @@ describe("Una Linked List", function () {
     expect(linkedList.tail instanceof Node).toBe(true);
   });
 
-  xit("con un solo nodo, tendrá un `head` que apuntará al mismo lado que el `tail`", function () {
+  it("con un solo nodo, tendrá un `head` que apuntará al mismo lado que el `tail`", function () {
     // Para este 'spec' es muy importante que recuerdes la diferencia entre valor y referencia. Mirá este video: https://www.youtube.com/watch?v=AvkyOrWkuQc
     linkedList.addToHead("first");
     expect(linkedList.head.value).toBe("first");
@@ -62,7 +62,7 @@ describe("Una Linked List", function () {
 
   // A partir de acá tendrás que avanzar por tu cuenta.
 
-  xit("debe devolver el `head` en `removeHead`", function () {
+  it("debe devolver el `head` en `removeHead`", function () {
     linkedList.addToTail("first");
     linkedList.addToTail("second");
     linkedList.addToTail("third");
@@ -71,7 +71,7 @@ describe("Una Linked List", function () {
     expect(linkedList.removeHead()).toBe("third");
   });
 
-  xit("debe estar segura de que la Propiedad `previous` de un nuevo `head` sea null", function () {
+  it("debe estar segura de que la Propiedad `previous` de un nuevo `head` sea null", function () {
     linkedList.addToTail("first");
     linkedList.addToTail("second");
     linkedList.addToTail("third");
@@ -79,7 +79,7 @@ describe("Una Linked List", function () {
     expect(linkedList.head.previous).toBe(null);
   });
 
-  xit("debe asegurarse de que el `next` de un nuevo `tail` sea null", function () {
+  it("debe asegurarse de que el `next` de un nuevo `tail` sea null", function () {
     linkedList.addToTail("first");
     linkedList.addToTail("second");
     linkedList.addToTail("third");
@@ -87,7 +87,7 @@ describe("Una Linked List", function () {
     expect(linkedList.tail.next).toBe(null);
   });
 
-  xit("debe poder agregar un nuevo nodo al principio y al final", function () {
+  it("debe poder agregar un nuevo nodo al principio y al final", function () {
     linkedList.addToTail("second");
     linkedList.addToHead("first");
     linkedList.addToTail("third");
@@ -96,7 +96,7 @@ describe("Una Linked List", function () {
     expect(linkedList.removeHead()).toBe("third");
   });
 
-  xit("debe devolver el `tail` con `removeTail`", function () {
+  it("debe devolver el `tail` con `removeTail`", function () {
     linkedList.addToTail("second");
     linkedList.addToHead("third");
     linkedList.addToTail("first");
@@ -105,7 +105,7 @@ describe("Una Linked List", function () {
     expect(linkedList.removeTail()).toBe("third");
   });
 
-  xit("debe eliminar el `head` y el `tail` cuando sea el último nodo", function () {
+  it("debe eliminar el `head` y el `tail` cuando sea el último nodo", function () {
     expect(linkedList.removeHead()).toBeFalsy();
     linkedList.addToTail("one");
     expect(linkedList.removeHead()).toBe("one");
@@ -114,7 +114,7 @@ describe("Una Linked List", function () {
     expect(linkedList.tail).toBeFalsy();
   });
 
-  xit("debe devolver los valores correctos para buscar", function () {
+  it("debe devolver los valores correctos para buscar", function () {
     linkedList.addToTail("one");
     linkedList.addToTail("two");
     linkedList.addToTail("three");
@@ -126,7 +126,7 @@ describe("Una Linked List", function () {
     expect(linkedList.search("four")).toBe("four");
   });
 
-  xit("debe tomar Strings y Functions como search inputs", function () {
+  it("debe tomar Strings y Functions como search inputs", function () {
     linkedList.addToTail("one");
     linkedList.addToTail("two");
     expect(
@@ -138,7 +138,7 @@ describe("Una Linked List", function () {
 
   // Si realizaste bien el test anterior, los siguientes pasarán automáticamente.
 
-  xit("debe buscar no solo Strings sino también Objetos", function () {
+  it("debe buscar no solo Strings sino también Objetos", function () {
     function UserNode(name, email, city) {
       this.name = name;
       this.email = email;
@@ -147,7 +147,7 @@ describe("Una Linked List", function () {
 
     linkedList.addToHead(
       new UserNode("Luke", "luke@skywalker.com", "Tatooine")
-      );
+    );
     linkedList.addToHead(
       new UserNode("Leia", "leia@skywalker.com", "Alderaan")
     );

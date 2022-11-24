@@ -1,6 +1,7 @@
 /* global graphGen shortestPaths performanceLoop */
 /* eslint-disable id-length */
 
+
 describe('`shortestPaths`', function(){
   var arrayContains = jasmine.arrayContaining;
   var undirectedGraph, largeGraph;
